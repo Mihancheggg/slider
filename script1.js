@@ -12,6 +12,7 @@ imagesURLs.push('https://avatars.mds.yandex.net/i?id=ad59446c5ced921127c88f140d8
 imagesURLs.push('https://avatars.mds.yandex.net/i?id=e056c77877591e07d352d0e86e0118bf-4628413-images-thumbs&n=13&exp=1')
 
 let currentImageIndex = 0;
+prevBtn.disabled = true
 
 sliderImage.src = imagesURLs[currentImageIndex]
 
@@ -20,12 +21,20 @@ prevBtn.addEventListener('click', onPrevBtnClick);
 nextBtn.addEventListener('click', onNextBtnClick);
 
 //functions definition
-function onPrevBtnClick() {
+function onPrevBtnClick(event) {
     currentImageIndex--
+    nextBtn.disabled = false
+    if (currentImageIndex === 0) {
+        prevBtn.disabled = true
+    }
     sliderImage.src = imagesURLs[currentImageIndex]
 };
 
-function onNextBtnClick() {
+function onNextBtnClick(event) {
     currentImageIndex++
+    prevBtn.disabled = false
+    if (currentImageIndex === imagesURLs.length - 1) {
+        nextBtn.disabled = true
+    }
     sliderImage.src = imagesURLs[currentImageIndex]
 }
