@@ -1,0 +1,13 @@
+.slider{
+    width: 70%;
+    max-width: 400px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.slider .sliderImage{
+    width: 300px;
+    height: auto;
+}
