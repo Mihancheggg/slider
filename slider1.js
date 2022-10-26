@@ -1,11 +1,19 @@
 let slider1 = {
     imagesURLs: [],
-    prevBtn: document.getElementById('prevBtn'),
-    nextBtn: document.getElementById('nextBtn'),
-    sliderImage: document.getElementById('sliderImage'),
+    prevBtn: null,
+    nextBtn: null,
+    sliderImage: null,
     currentImageIndex: 0,
 
-    start: function () {
+    start: function (elId) {
+
+        let selector = `#${elId}`;
+        let el = document.querySelector(selector);
+
+        this.prevBtn = el.querySelector('.prevBtn')
+        this.nextBtn = el.querySelector('.nextBtn')
+        this.sliderImage = el.querySelector('.sliderImage')
+
         this.imagesURLs.push('https://avatars.mds.yandex.net/i?id=9cdf07fae373c888b11e48e943a1e771-5161032-images-thumbs&n=13&exp=1')
         this.imagesURLs.push('https://avatars.mds.yandex.net/i?id=03eb9f3bfc40ecb2b07035a769ed9ff7-4825588-images-thumbs&n=13&exp=1')
         this.imagesURLs.push('https://avatars.mds.yandex.net/i?id=ad59446c5ced921127c88f140d873e4e-4432920-images-thumbs&n=13&exp=1')
@@ -35,4 +43,5 @@ let slider1 = {
     },
 };
 
-slider1.start();
+slider1.start('slider1');
+slider1.start('slider2');
